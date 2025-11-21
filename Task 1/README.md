@@ -1,13 +1,13 @@
-# Heart Disease Prediction - Data Preprocessing
+# Heart Disease Prediction (Data Preprocessing)
 
 ## Objective
 Preprocess and clean the UCI Heart Disease (Cleveland) dataset for machine learning model training.
 
-## Tools & Libraries Used
-- Python 
+## Tools & Libraries
+- Python
 - Pandas
 - NumPy
-- Scikit-learn
+- Scikit-learn (SimpleImputer, StandardScaler)
 - Matplotlib/Seaborn
 - ucimlrepo
 
@@ -16,49 +16,44 @@ Preprocess and clean the UCI Heart Disease (Cleveland) dataset for machine learn
 - **Source**: UCI Machine Learning Repository (ID: 45)
 - **Features**: 13 medical attributes + 1 target variable
 - **Samples**: 303 total, 215 after outlier removal
-- **Target**: Presence of heart disease (num: 0-4)
 
-## Data Preprocessing Steps
+## Analysis Implemented (matches `AIML_T1.ipynb`)
 
-### 1. Data Loading & Initial Exploration
-- Fetched dataset using `ucimlrepo`
-- Combined features and target variables
-- Performed initial data exploration:
-  - Basic statistics (mean, std, min, max)
-  - Data types verification
-  - Missing values check
+1. Data loading & exploration
+   - Fetched dataset using `ucimlrepo`
+   - Combined features and target variables
+   - Displayed basic info and statistics
 
-### 2. Missing Value Handling
-- Checked for missing values in all columns
-- No missing values found in this dataset
-- Prepared imputation pipeline for future use:
-  - Numerical columns: Mean imputation
-  - Categorical columns: Most frequent value imputation
+2. Missing value handling
+   - Checked for missing values across all columns
+   - Applied `SimpleImputer` with mean strategy for numeric columns
+   - Applied `SimpleImputer` with most frequent strategy for categorical columns
 
-### 3. Feature Engineering
-- Applied one-hot encoding to categorical variables using `pd.get_dummies()`
-- No explicit categorical columns found (all were already numerical)
+3. Feature encoding
+   - Applied one-hot encoding to categorical variables using `pd.get_dummies()`
 
-### 4. Feature Scaling
-- Standardized all numerical features using `StandardScaler`
-- Features transformed to have mean=0 and std=1
-- Formula: (x - mean) / std
+4. Feature scaling
+   - Standardized all numerical features using `StandardScaler`
+   - Transformed features to have mean=0 and std=1
 
-### 5. Outlier Detection & Removal
-- Visualized distributions using boxplots
-- Applied IQR method to detect outliers
-- Removed 88 samples (29%) with extreme values
-- Final clean dataset: 215 samples
+5. Outlier detection & removal
+   - Visualized distributions using boxplots
+   - Applied IQR (Interquartile Range) method to detect outliers
+   - Removed 88 samples (29%) with extreme values
+   - Final clean dataset: 215 samples
 
 ## How to Run
 1. Install required packages:
-   ```
+   ```powershell
    pip install pandas numpy scikit-learn matplotlib seaborn ucimlrepo
    ```
-2. Run the Jupyter notebook `AIML_T1.ipynb`
-3. The notebook will automatically:
-   - Download the dataset
-   - Perform all preprocessing steps
-   - Save the cleaned dataset
+2. Open `AIML_T1.ipynb` in Jupyter and run cells sequentially. The notebook automatically downloads and processes the dataset.
 
-This project demonstrates essential preprocessing steps for preparing data for machine learning models.
+## Files
+- `AIML_T1.ipynb` — notebook implementing the preprocessing pipeline.
+
+## Notes / Next Steps
+- The cleaned dataset is ready for machine learning model training.
+- Consider applying additional techniques like feature selection or polynomial features for model improvement.
+
+This README reflects exactly what is implemented in `AIML_T1.ipynb`.

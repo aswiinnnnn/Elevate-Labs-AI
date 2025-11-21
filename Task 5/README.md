@@ -1,28 +1,63 @@
 ````markdown
-# Dataset: Heart Records (Task 5)
+# Decision Tree & Random Forest Classification (Heart Disease)
 
-## Overview
-This folder contains a dataset file used for practicing data analysis and EDA tasks.
+## Objective
+Train and compare Decision Tree and Random Forest classifiers to predict heart disease presence.
+
+## Tools & Libraries
+- Python
+- Pandas
+- NumPy
+- Scikit-learn (DecisionTreeClassifier, RandomForestClassifier, train_test_split, StandardScaler, metrics)
+- Matplotlib
+
+## Dataset
+- **File**: `heart.csv` (included in `Task 5` directory)
+- Features extracted dynamically (all columns except the last, which is the target)
+
+## Analysis Implemented (matches `AIML_T5.ipynb`)
+
+1. Data loading & preparation
+   - Loaded `heart.csv` with Pandas
+   - Extracted target column dynamically (last column)
+   - Separated features and target
+
+2. Train / test split
+   - Split data 70/30 using `train_test_split(..., test_size=0.3, random_state=42)`
+
+3. Feature scaling
+   - Applied `StandardScaler()` on both training and test sets
+
+4. Decision Tree classifier
+   - Trained `DecisionTreeClassifier(max_depth=5, criterion='gini')`
+   - Evaluated accuracy and classification metrics
+   - Visualized decision tree structure
+
+5. Random Forest classifier
+   - Trained `RandomForestClassifier(n_estimators=100, max_depth=10)`
+   - Evaluated accuracy and classification metrics
+
+6. Model comparison
+   - Compared Decision Tree vs Random Forest accuracies
+
+7. Feature importance analysis
+   - Extracted and ranked top 5 important features from Random Forest
+
+## How to Run
+1. Install required packages:
+   ```powershell
+   pip install pandas numpy scikit-learn matplotlib
+   ```
+2. Open `AIML_T5.ipynb` in Jupyter and run cells sequentially.
 
 ## Files
-- `heart.csv` — CSV dataset included in this folder.
+- `AIML_T5.ipynb` — notebook with tree-based classification analysis.
+- `heart.csv` — dataset used by the notebook.
 
-## Notes
-- There is no notebook in this folder. If you intended to include an analysis notebook, add `AIML_T5.ipynb` with your steps.
-- Suggested next steps:
-  - Create an `AIML_T5.ipynb` that performs EDA: summary statistics, histograms, boxplots, correlation matrix, and basic observations.
-  - Add a short README entry for the notebook results (key findings and metrics).
+## Notes / Next Steps
+- Feature importance helps identify which variables drive predictions.
+- Consider adjusting max_depth or n_estimators for different accuracy/complexity tradeoffs.
 
-## How to use
-1. Install common data packages:
-   ```powershell
-   pip install pandas matplotlib seaborn
-   ```
-2. Load the dataset in a notebook:
-   ```python
-   import pandas as pd
-   df = pd.read_csv('heart.csv')
-   df.head()
-   ```
+This README reflects exactly what is implemented in `AIML_T5.ipynb`.
 
 ````
