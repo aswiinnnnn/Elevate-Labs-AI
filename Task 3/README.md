@@ -1,4 +1,57 @@
- # Housing Price Prediction - Notebook
+````markdown
+# Housing Price Prediction (Linear Regression)
+
+## Objective
+Train a Linear Regression model to predict house prices using the `Housing.csv` dataset.
+
+## Tools & Libraries
+- Python
+- Pandas
+- Scikit-learn (LinearRegression, train_test_split)
+
+## Dataset
+- **File**: `Housing.csv` (included in `Task 3` directory)
+
+## Analysis Implemented (matches `AIML_T3.ipynb`)
+
+1. Data loading
+   - Read `Housing.csv` with Pandas and displayed sample rows.
+
+2. Feature / target split
+   - Separated features `x` (all columns except `price`) and target `y` (`price`).
+
+3. One-hot encoding
+   - Applied `pd.get_dummies()` to categorical columns: `mainroad`, `guestroom`, `basement`, `hotwaterheating`, `airconditioning`, `prefarea`, `furnishingstatus` (using `drop_first=True`).
+
+4. Train / test split
+   - Split data into training and test sets using `train_test_split(..., test_size=0.2, random_state=42)`.
+
+5. Model training
+   - Trained `LinearRegression()` on the training data.
+
+6. Evaluation
+   - Predicted on the test set and computed:
+     - Mean Absolute Error (MAE)
+     - Mean Squared Error (MSE)
+     - R-squared (R²)
+
+## How to Run
+1. Install required packages:
+   ```powershell
+   pip install pandas scikit-learn
+   ```
+2. Open `AIML_T3.ipynb` in Jupyter and run cells sequentially. The notebook prints MAE, MSE, and R² at the end.
+
+## Files
+- `AIML_T3.ipynb` — notebook implementing the pipeline described above.
+- `Housing.csv` — dataset used by the notebook.
+
+## Notes / Next Steps
+- Consider adding scaling or feature selection, cross-validation, or trying tree-based models for improved performance.
+
+This README reflects exactly what is implemented in `AIML_T3.ipynb`.
+
+```` # Housing Price Prediction - Notebook
 
 This project contains a Jupyter Notebook (`Task2.ipynb`) that trains a simple Linear Regression model to predict house prices using the `Housing.csv` dataset included in the project root.
 
